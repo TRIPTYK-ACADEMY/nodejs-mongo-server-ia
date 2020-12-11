@@ -1,9 +1,11 @@
 Installation :
 
-npm install
+`npm install`
 
-Changer la db dans index.js si nécéssaire
+Changer le chemin de connexion de db dans index.js si nécéssaire
+
+`mongodb://localhost:27017/<db>`
 
 Execution :
 
-nodemon index.js
+`nodemon index.js`
