@@ -1,5 +1,5 @@
-const http = require('http');
 const fs = require('fs');
+const querystring = require('querystring');
 
 const routes = [
     {
@@ -47,10 +47,15 @@ const fileExtensions = [
  * @param {require("http").ServerResponse}​​ response 
  */
 module.exports = async (request, response) => {
-    const route = routes.find((routeObject) => request.url === routeObject.url);
+    const [url,parameters] = request.url.split("?");
+    const parsedParameters = querystring.parse(parameters);
+
+    const route = routes.find((routeObject) => url === routeObject.url);
+
+    request["query"] = parsedParameters;
 
     const fileExt = fileExtensions.find((fileObject) => {
-        if (request.url.endsWith(`.${fileObject.ext}`)) { // si ça fini par .${extension}
+        if (url.endsWith(`.${fileObject.ext}`)) { // si ça fini par .${extension}
             return true; // on veut bien chercher une extension
         }
     });
@@ -59,7 +64,7 @@ module.exports = async (request, response) => {
         response.writeHead(200,{
             'Content-Type': fileExt.responseType // on répond avec le type correspondant
         });
-        const fileStream = fs.createReadStream(`.${request.url}`); // on lis le fichier demandé
+        const fileStream = fs.createReadStream(`.${url}`); // on lis le fichier demandé
         fileStream.pipe(response);// on pipe le contenu de fichier vers la réponse
         return;// on return car ça ne sert plus à rien d'éxécuter la suite du fichier router
     }

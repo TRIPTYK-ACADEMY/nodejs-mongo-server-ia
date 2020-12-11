@@ -2,7 +2,11 @@ const movies = require("../models/movies");
 const renderPage = require("../utils/render-page");
 
 exports.details = (request,response) => {
-    
+    // ex url : http://localhost:8080/films/details?id=573a13fbf29313caabdee03b
+    // En fonction du paramètre passé dans la route , récupérer l'article corresondant ainsi que ses commmentaires et l'afficher dans un template moustache
+    console.log("query",request.query);
+
+    return "";
 }
 
 exports.list = async (request,response) => {
