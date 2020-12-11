@@ -1,12 +1,24 @@
 const movies = require("../models/movies");
 const renderPage = require("../utils/render-page");
 
-exports.details = (request,response) => {
+exports.details = async (request,response) => {
     // ex url : http://localhost:8080/films/details?id=573a13fbf29313caabdee03b
-    // En fonction du paramètre passé dans la route , récupérer l'article corresondant ainsi que ses commmentaires et l'afficher dans un template moustache
-    console.log("query",request.query);
+    // En fonction du paramètre passé dans la route , récupérer le film correspondant 
+    // ainsi que ses commmentaires et l'afficher dans un template moustache
+    const movie = await movies.findOne({_id : request.query.id});
 
-    return "";
+    // on recherche les films liés au movie
+    // const comments = await movies.find({
+    //     movie_id : request.query.id
+    // });
+    // movie.comments = comments;
+
+    const html = await renderPage("movie-details",{
+        movie : movie,
+        title : movie.title
+    });
+
+    return html;
 }
 
 exports.list = async (request,response) => {
