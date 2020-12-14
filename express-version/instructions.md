@@ -5,3 +5,4 @@
 # Reproduisez les mêmes routes que sur l'ancienne appplication
 # pour les controllers , pour le moment laissez le contenu vide ou un simple console.log
 
+router.all("/list",memberController.list);
