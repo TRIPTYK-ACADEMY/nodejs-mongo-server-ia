@@ -1,3 +1,3 @@
 module.exports = (req,res) => {
-    console.log(req.url);
+    res.send(req.url);
 }
