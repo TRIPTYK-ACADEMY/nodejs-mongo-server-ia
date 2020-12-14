@@ -2,3 +2,12 @@
 <p>Année : {{movie.year}}</p>
 <p>Audience : {{movie.rated}}</p>
 <p>Awards : {{movies.awards.wins}} </p>
+
+<h2>Commentaires</h2>
+
+{{#movie.comments}}
+    <div>
+        <p>{{name}} - {{email}}</p>
+        <p>{{text}}</p>
+    </div>
+{{/movie.comments}}

@@ -23,4 +23,10 @@ const schema = new Schema({
     tomatoes : Object
 });
 
+schema.virtual("comments",{
+    ref : "comments",
+    localField: '_id',
+    foreignField: 'movie_id'
+});
+
 module.exports = model("movies",schema);
