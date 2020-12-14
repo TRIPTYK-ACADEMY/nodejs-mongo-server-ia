@@ -7,5 +7,10 @@ router.all("/list",(req,res) => {
     res.send("listeDeMembres");
 });
 
+// GET members/get
+router.get("/get",(req,res) => {
+    res.send("get member");
+});
+
 // on exporte le router ainsi créé
 module.exports = router;
