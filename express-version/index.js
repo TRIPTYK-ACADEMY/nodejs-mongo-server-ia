@@ -16,8 +16,8 @@ mongoose.connect(process.env.MONGO_CONNECTION,{
         const server = express();
         const router = require("./router");
 
-        // on dit au serveur d'utiliser le routeur exporté du module router.js
-        server.use(router);
+        // on dit au serveur d'utiliser le routeur exporté du module router.js à la racine
+        server.use("/", router);
 
         // process.env.<variable> pour lire une variable d'environnement
         server.listen(process.env.PORT,() => {
