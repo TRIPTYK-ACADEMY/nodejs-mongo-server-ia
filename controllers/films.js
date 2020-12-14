@@ -10,10 +10,10 @@ exports.details = async (request,response) => {
         .findOne({_id : request.query.id})
         .populate("comments"); //va charger la référence (virtuelle dans ce cas-ci)
 
-    // v v v v v v v v v v v 🎅 🎅 🎅 🎅 🎅
+    // v v v v v v v v v v v 🎅 🎅 🎅 🎅 🎅 😂 😂 
     // POPULATE = CHARGER REFERENCE , (COMME CHARGER UNE RELATION EN FAIT)
     // (important de spécifier dans le schéma la référence avec le type mongoose.Schema.Types.ObjectId)
-    // ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ 🎅 🎅 🎅 🎅 🎅
+    // ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ 🎅 🎅 🎅 🎅 🎅 😂 😂
 
     // méthode 1 : récupérer les commentaires en fonction du movie_id , "méthode manuelle"
     // const commentsList = await comments.find({
@@ -40,13 +40,14 @@ exports.details = async (request,response) => {
 exports.list = async (request,response) => {
     const films = await movies
         .find()
-        .limit(10);
+        .limit(10)
+        .populate("comments"); //  je vais charger mes commentaires pour mes films
 
     const html = await renderPage("films",{
         currentDate : new Date().toDateString(), //prend la date actuelle et la convertis en chaine lisible
         // la variable film sera disponible  dans le template en tant que movies
         movies : films,
-        title : "Nos films"
+        title : "Nos films 🎥"
     });
 
     // response.writeHead(200,{

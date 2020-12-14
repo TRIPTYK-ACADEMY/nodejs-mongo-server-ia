@@ -1,7 +1,7 @@
-<p>Nous sommes le {{currentDate}} aujourd'hui !</p>
+<p>📅 Nous sommes le {{currentDate}} aujourd'hui !</p>
 {{#movies}}
     <a href="/films/details?id={{_id}}">
-        <h2>{{title}} (0 💬)</h2>
+        <h2>{{title}} ({{comments.length}} 💬)</h2>
     </a>
     <div class="movie">
         {{#poster}}
