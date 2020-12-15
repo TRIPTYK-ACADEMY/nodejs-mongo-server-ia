@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const dotenv = require("dotenv");
+const logger = require("./middlewares/request-logger");
 //const mustacheExpress = require("mustache-express");
-
 
 // va charger PORT et MONGO_CONNECTION dans process.env
 dotenv.config({
@@ -26,6 +26,10 @@ mongoose.connect(process.env.MONGO_CONNECTION,{
 
         // défini le dossier views , va chercher dans views
         // server.set('views', __dirname + '/views');
+
+        // middleware qui log les requêtes
+
+        server.use(logger);
 
         // on dit au serveur d'utiliser le routeur exporté du module router.js à la racine
         server.use("/", router);
