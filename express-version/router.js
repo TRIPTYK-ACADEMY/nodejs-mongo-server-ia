@@ -18,6 +18,7 @@ monRouteur.get( "/films", noEdgeMiddleware , filmsController.list);
 // quand on arrive sur l'URL avec la méthode GET (/films/details) on exécute la méthode détails exportée par le module films
 monRouteur.get( "/films/details", filmsController.details);
 
+// middlewares not found et erreur à la fin
 monRouteur.use(notFoundErrorHandler);
 monRouteur.use(fatalErrorHandler);
 
