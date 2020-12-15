@@ -1,0 +1,15 @@
+<p>📅 Nous sommes le {{currentDate}} aujourd'hui !</p>
+{{#movies}}
+    <a href="/films/details?id={{_id}}">
+        <h2>{{title}} ({{comments.length}} 💬)</h2>
+    </a>
+    <div class="movie">
+        {{#poster}}
+            <img src="{{poster}}">
+        {{/poster}}
+        {{^poster}}
+            <img src="https://dummyimage.com/256x256/000/0033ff.png&text=Not+found">
+        {{/poster}}
+        <span>{{plot}}</span>
+    </div>
+{{/movies}}
