@@ -26,7 +26,7 @@ server.get("/",
         console.log("4");
         next();
     },
-    (req,res) => { // middleware 5
+    (req,res,next) => { // middleware 5
         console.log("5");
         res.send("Jai fini toutes mes fonctions");
     }
