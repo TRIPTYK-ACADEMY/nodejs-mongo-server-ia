@@ -14,9 +14,9 @@ monRouteur.use("/public", express.static("./public"));
 monRouteur.get("/", indexController);
 
 // on gère la méthode GET
-monRouteur.get("/theaters", theaterController.listOrCreate);
+monRouteur.get("/theaters", theaterController.list);
 // on gère la méthode POST 
-monRouteur.post("/theaters", theaterController.listOrCreate);
+monRouteur.post("/theaters", theaterController.create);
 // on gère la méthode DELETE 
 monRouteur.delete("/theaters", theaterController.deleteTheater);
 
