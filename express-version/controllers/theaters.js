@@ -24,6 +24,10 @@ module.exports = async (req, res) => {
         await newTheater.save();
     }
 
+    if (req.method === "DELETE") {
+        console.log("delete", req.query);
+    }
+
     const allTheaters = await theaters
         .find()
         .sort([ // trie par date de création sur l'_id car il contient en interne une date de cration

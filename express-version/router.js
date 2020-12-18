@@ -17,6 +17,8 @@ monRouteur.get("/", indexController);
 monRouteur.get("/theaters", theaterController);
 // on gère la méthode POST 
 monRouteur.post("/theaters", theaterController);
+// on gère la méthode DELETE 
+monRouteur.delete("/theaters", theaterController);
 
 monRouteur.get("/films", noEdgeMiddleware, filmsController.list);
 
