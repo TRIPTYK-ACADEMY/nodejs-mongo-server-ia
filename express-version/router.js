@@ -6,6 +6,7 @@ const filmsController = require("./controllers/films");
 const noEdgeMiddleware = require("./middlewares/no-edge");
 const fatalErrorHandler = require("./middlewares/fatal-error");
 const notFoundErrorHandler = require("./middlewares/not-found");
+const bodyParser = require("body-parser");
 
 // créé une route /public où seront servis les fichiers statiques du dossier ./public
 monRouteur.use("/public", express.static("./public"));
@@ -13,12 +14,18 @@ monRouteur.use("/public", express.static("./public"));
 // quand on arrive sur l'index (/) on exécute la méthode exportée par le module index
 monRouteur.get("/", indexController);
 
+// edit
+monRouteur.patch("/theaters/:id", bodyParser.json(), theaterController.edit);
+// détails
+monRouteur.get("/theaters/:id", theaterController.details);
+
+
 // on gère la méthode GET
 monRouteur.get("/theaters", theaterController.list);
 // on gère la méthode POST 
 monRouteur.post("/theaters", theaterController.create);
 // on gère la méthode DELETE 
-monRouteur.delete("/theaters", theaterController.deleteTheater);
+monRouteur.delete("/theaters/:id", theaterController.deleteTheater);
 
 monRouteur.get("/films", noEdgeMiddleware, filmsController.list);
 

@@ -1,0 +1,21 @@
+<form onSubmit="editTheater(event)">
+    <input name="formId" value="{{theater._id}}" type="hidden" />
+    <label>
+        Rue
+        <input name="street" value="{{theater.location.address.street1}}" placeholder="La street" />
+    </label>
+    <label>
+        Cité
+        <input name="city" value="{{theater.location.address.city}}" placeholder="La téci"/>
+    </label>
+    <label>
+        Pays
+        <input name="state" value="{{theater.location.address.state}}" placeholder="Le péis" />
+    </label>
+    <label>
+        Code postal
+        <input name="zipCode" value="{{theater.location.address.zipCode}}" placeholder="Le code .zip" />
+    </label>
+    <!-- Si submit n'est pas précisé , il n'enverra pas les données du formulaire -->
+    <button type="submit">Envoyer</button>
+</form>
