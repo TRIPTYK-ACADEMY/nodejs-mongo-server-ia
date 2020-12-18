@@ -460,3 +460,17 @@
 ::1 a fait une requête GET sur /public/public.css à 2020-12-18T12:46:04.609Z
 ::1 a fait une requête GET sur /public/public.js à 2020-12-18T12:46:04.609Z
 ::1 a fait une requête GET sur /favicon.ico à 2020-12-18T12:46:04.747Z
+::1 a fait une requête GET sur /films à 2020-12-18T13:59:53.832Z
+::1 a fait une requête GET sur /public/public.css à 2020-12-18T13:59:54.257Z
+::1 a fait une requête GET sur /public/public.js à 2020-12-18T13:59:54.274Z
+::1 a fait une requête GET sur /favicon.ico à 2020-12-18T13:59:54.389Z
+::1 a fait une requête GET sur /films/details?id=573a1390f29313caabcd4135 à 2020-12-18T13:59:56.594Z
+::1 a fait une requête GET sur /films à 2020-12-18T14:00:43.059Z
+::1 a fait une requête GET sur /public/public.css à 2020-12-18T14:00:43.500Z
+::1 a fait une requête GET sur /public/public.js à 2020-12-18T14:00:43.529Z
+::1 a fait une requête GET sur /films/573a1390f29313caabcd4135 à 2020-12-18T14:00:45.477Z
+::1 a fait une requête GET sur /public/public.css à 2020-12-18T14:00:45.827Z
+::1 a fait une requête GET sur /public/public.js à 2020-12-18T14:00:45.839Z
+::1 a fait une requête GET sur /films à 2020-12-18T14:01:24.864Z
+::1 a fait une requête GET sur /public/public.css à 2020-12-18T14:01:25.306Z
+::1 a fait une requête GET sur /public/public.js à 2020-12-18T14:01:25.330Z

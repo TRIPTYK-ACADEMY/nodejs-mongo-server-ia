@@ -23,7 +23,8 @@ monRouteur.delete("/theaters", theaterController.deleteTheater);
 monRouteur.get("/films", noEdgeMiddleware, filmsController.list);
 
 // quand on arrive sur l'URL avec la méthode GET (/films/details) on exécute la méthode détails exportée par le module films
-monRouteur.get("/films/details", filmsController.details);
+// on met un params :id qui sera accessible dans le controller en tant que req.params.id
+monRouteur.get("/films/:id", filmsController.details);
 
 // middlewares not found et erreur à la fin
 monRouteur.use(notFoundErrorHandler);
