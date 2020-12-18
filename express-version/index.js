@@ -3,6 +3,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const logger = require("./middlewares/request-logger");
 //const mustacheExpress = require("mustache-express");
+const bodyParser = require("body-parser");
 
 // va charger PORT et MONGO_CONNECTION dans process.env
 dotenv.config({
@@ -27,8 +28,12 @@ mongoose.connect(process.env.MONGO_CONNECTION, {
         // défini le dossier views , va chercher dans views
         // server.set('views', __dirname + '/views');
 
-        // middleware qui log les requêtes
+        // utilise le middleware bodyParser qui permet de parcourir le contenu (body) de votre requête et de le placer dans l'objet body de req
+        server.use(bodyParser.urlencoded({
+            extended: true
+        }));
 
+        // middleware qui log les requêtes
         server.use(logger);
 
         // on dit au serveur d'utiliser le routeur exporté du module router.js à la racine

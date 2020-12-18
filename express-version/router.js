@@ -12,7 +12,12 @@ monRouteur.use("/public", express.static("./public"));
 
 // quand on arrive sur l'index (/) on exécute la méthode exportée par le module index
 monRouteur.get("/", indexController);
-monRouteur.get("/theaters", theaterController);
+
+// on gère la méthode GET
+monRouteur.get("/theaters", theaterController.list);
+// on gère la méthode POST 
+monRouteur.post("/theaters", theaterController.createTheater);
+
 monRouteur.get("/films", noEdgeMiddleware, filmsController.list);
 
 // quand on arrive sur l'URL avec la méthode GET (/films/details) on exécute la méthode détails exportée par le module films
