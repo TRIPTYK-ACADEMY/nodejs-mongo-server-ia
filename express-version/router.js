@@ -14,11 +14,11 @@ monRouteur.use("/public", express.static("./public"));
 monRouteur.get("/", indexController);
 
 // on gère la méthode GET
-monRouteur.get("/theaters", theaterController);
+monRouteur.get("/theaters", theaterController.listOrCreate);
 // on gère la méthode POST 
-monRouteur.post("/theaters", theaterController);
+monRouteur.post("/theaters", theaterController.listOrCreate);
 // on gère la méthode DELETE 
-monRouteur.delete("/theaters", theaterController);
+monRouteur.delete("/theaters", theaterController.deleteTheater);
 
 monRouteur.get("/films", noEdgeMiddleware, filmsController.list);
 

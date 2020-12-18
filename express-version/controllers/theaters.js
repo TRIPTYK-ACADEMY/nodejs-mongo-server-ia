@@ -3,7 +3,14 @@
 const theaters = require("../models/theater");
 const renderPage = require("../utils/render-page");
 
-module.exports = async (req, res) => {
+exports.deleteTheater = async (req, res) => {
+    // on supprime le cinéma
+    await theaters.findByIdAndDelete(req.query.id);
+    // renvoie une réponse vide juste avec un code de status 204 = NO CONTENT
+    res.sendStatus(204);
+}
+
+exports.listOrCreate = async (req, res) => {
     // on va gérer la requête POST
     // 1 == "1" => égal
     // 1 ===  "1" => pas égal
@@ -22,10 +29,6 @@ module.exports = async (req, res) => {
 
         // on persiste en DB le document créé
         await newTheater.save();
-    }
-
-    if (req.method === "DELETE") {
-        console.log("delete", req.query);
     }
 
     const allTheaters = await theaters
