@@ -6,12 +6,12 @@ const logger = require("./middlewares/request-logger");
 
 // va charger PORT et MONGO_CONNECTION dans process.env
 dotenv.config({
-    path : "./variables.env"
+    path: "./variables.env"
 });
 
-mongoose.connect(process.env.MONGO_CONNECTION,{
-    useUnifiedTopology : true,
-    useNewUrlParser : true
+mongoose.connect(process.env.MONGO_CONNECTION, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
 }).then(
     // dès qu'on est connecté , on exécute la fonction dans le .then
     () => {
@@ -35,7 +35,7 @@ mongoose.connect(process.env.MONGO_CONNECTION,{
         server.use("/", router);
 
         // process.env.<variable> pour lire une variable d'environnement
-        server.listen(process.env.PORT,() => {
+        server.listen(process.env.PORT, () => {
             console.log(`Je vous ai compris sur le port ${process.env.PORT}`);
         });
     }
