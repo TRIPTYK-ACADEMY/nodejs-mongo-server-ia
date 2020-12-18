@@ -1,5 +1,10 @@
 {{#theaters}}
-    <h2>{{location.address.street1}}</h2>
+    <div>
+        <h2>
+            {{location.address.street1}}
+            <span onClick="deleteTheater('{{_id}}')">🗑</span>
+        </h2>
+    </div>
 {{/theaters}}
 
 <hr>
